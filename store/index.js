@@ -1,23 +1,24 @@
 import axios from "~/plugins/axios"
 
 export const state = () => ({
-    users: [{
+    news: [{
         id: 0,
         login: "mhelvin"
     }]
 })
 
 export const mutations = {
-    setUsers(state, users) {
-        state.users = users
+    setNews(state, news) {
+        state.news = news
     }
 }
 
 export const actions = {
     async nuxtServerInit({commit}) {
-        const response = await axios.get("users")
-        const users = response.data
+        const response = await axios.get("news")
+        console.log(response)
+        const news = response.data
 
-        commit("setUsers", users)
+        commit("setNews", news)
     }
 }

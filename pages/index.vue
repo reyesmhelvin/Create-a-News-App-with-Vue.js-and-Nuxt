@@ -1,8 +1,7 @@
 <template>
   <div class="f1 code">
-    hello world!
     <ul>
-      <li v-for="user in users" :key="user.id">{{user.login}}</li>
+      <li v-for="article in news" :key="article.id">{{article.acf.news_title}}</li>
     </ul>
   </div>
 </template>
@@ -11,7 +10,7 @@
 
   export default {
     computed: mapState([
-      "users"
+      "news"
     ])
   }
 </script>
