@@ -1,23 +1,30 @@
 import axios from "~/plugins/axios"
 
 export const state = () => ({
-    users: [{
-        id: 0,
-        login: "mhelvin"
-    }]
+    ids: [],
+    items: []
 })
 
 export const mutations = {
-    setUsers(state, users) {
-        state.users = users
+    setIds(state, ids) {
+        state.ids = ids
+    },
+    setItems(state, items) {
+        state.items = items
     }
 }
 
 export const actions = {
     async nuxtServerInit({commit}) {
-        const response = await axios.get("users")
-        const users = response.data
+        const response = await axios.get("topstories.json")
+        const ids = response.data
 
-        commit("setUsers", users)
+        const tenIds = ids.slice(0, 10)
+        const ItemsPromises = tenIds.map(id => axios.get(`item/${id}.json`))
+        const itemsResponses = await Promise.all(ItemsPromises)
+        const items = itemsResponses.map(res => res.data)
+
+        //commit("setIds", ids)
+        commit("setItems", items)
     }
 }
