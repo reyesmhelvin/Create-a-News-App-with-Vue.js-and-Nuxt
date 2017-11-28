@@ -1,5 +1,10 @@
 <template>
-  <div>
+  <div class="f1 code">
     hello world!
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
   </div>
 </template>
