@@ -2,9 +2,19 @@
   <div class="f1 code">
     hello world!
     <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
+      <li v-for="user in users" :key="user.id">{{user.login}}</li>
     </ul>
   </div>
 </template>
+<script>
+  import axios from "~/plugins/axios"
+
+  export default {
+    asyncData() {
+      return axios.get("users")
+      .then(res => ({
+        users: res.data
+      }))
+    }
+  }
+</script>
