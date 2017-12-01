@@ -19,4 +19,7 @@ $ npm start
 $ npm run generate
 ```
 
+# deployed @
+https://hackernuxt-acfbeqwvpm.now.sh
+
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
