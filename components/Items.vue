@@ -13,7 +13,7 @@
           </template>
         </div>
         <div class="details">
-          by {{item.by}} 
+          by <nuxt-link :to="`/user/${item.by}`">{{item.by}}</nuxt-link>
           <p class="ma0 i f7">{{item.time | timeSince}} ago</p>
         </div>   
         <template v-if="item.descendants">
